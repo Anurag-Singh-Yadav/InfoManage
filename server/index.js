@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const sequelize = require("./config/config");
-// const entityRoutes = require("./routes/entityRoutes");
+const entityRoutes = require("./routes/routes");
 
 const app = express();
 
