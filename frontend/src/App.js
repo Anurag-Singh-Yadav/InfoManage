@@ -3,10 +3,10 @@
 import React, { useState, useEffect } from "react";
 import "./index.css";
 import axios from "axios";
-import P_FORM from "./components/P_FORM";
-import P_List from "./components/P_List";
-
+import PersonForm from "./components/PersonForm";
+import PersonList from "./components/PersonList";
 function App() {
+  const base_url = process.env.REACT_APP_BASE_URL;
   const [persons, setPersons] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
   const [formData, setFormData] = useState({
@@ -24,7 +24,7 @@ function App() {
   // Function to fetch data from the server
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/api/persons");
+      const response = await axios.get(`${base_url}/persons`);
       setPersons(response.data);
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -34,7 +34,7 @@ function App() {
   // Function to handle addition of a new person
   const handleAddPerson = async (formData) => {
     try {
-      await axios.post("http://localhost:3000/api/persons", formData);
+      await axios.post(`${base_url}/persons`, formData);
       fetchData(); // Fetch data after adding a person
     } catch (error) {
       console.log("Error adding person:", error.response.data.message);
@@ -62,7 +62,7 @@ function App() {
       return;
     }
     try {
-      await axios.put(`http://localhost:3000/api/persons/${id}`, newData);
+      await axios.put(`${base_url}/persons/${id}`, newData);
       fetchData(); // Fetch data after updating a person
     } catch (error) {
       console.error("Error updating person:", error);
@@ -72,16 +72,16 @@ function App() {
   // Function to handle deletion of a person
   const handleDeletePerson = async (id) => {
     try {
-      await axios.delete(`http://localhost:3000/api/persons/${id}`);
+      await axios.delete(`${base_url}/persons/${id}`);
       fetchData(); // Fetch data after deleting a person
     } catch (error) {
       console.error("Error deleting person:", error);
     }
   };
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2">
+    <div className="grid grid-cols-1 pb-7 md:grid-cols-2">
       <div className="">
-        <P_FORM
+        <PersonForm
           formData={formData}
           error={errorMessage}
           setError={setErrorMessage}
@@ -91,7 +91,7 @@ function App() {
         />
       </div>
       <div>
-        <P_List
+        <PersonList
           persons={persons}
           handleUpdatePerson={handleUpdatePerson}
           setFormData={setFormData}

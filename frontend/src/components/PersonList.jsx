@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import DialogBox from "./DialogBox";
 import Avatar from "react-avatar";
-function P_List({ persons, handleUpdatePerson, onDeletePerson }) {
+import { MdDelete } from "react-icons/md";
+import { MdEdit } from "react-icons/md";
+function PersonList({ persons, handleUpdatePerson, onDeletePerson }) {
   const [open, setOpen] = useState(false);
   const [formData, setFormData] = useState({});
   return (
@@ -26,22 +28,22 @@ function P_List({ persons, handleUpdatePerson, onDeletePerson }) {
                     {person.name}
                   </div>
                   <div>{person.email}</div>
-                  <div className="flex justify-between items-start">
+                  <div className="flex my-2 justify-between items-start">
                     <button
                       onClick={() => onDeletePerson(person.id)}
-                      className=""
+                      className=" rounded-full bg-red-500 text-white p-2 hover:bg-red-700"
                     >
-                      Delete
+                      <MdDelete size={20} />
                     </button>
                     <button
-                      className=""
+                      className=" rounded-full bg-blue-500 text-white p-2 hover:bg-blue-700"
                       onClick={(e) => {
                         e.preventDefault();
                         setFormData(person);
                         setOpen(true);
                       }}
                     >
-                      Update
+                      <MdEdit size={20} />
                     </button>
                   </div>
                 </div>
@@ -54,4 +56,4 @@ function P_List({ persons, handleUpdatePerson, onDeletePerson }) {
   );
 }
 
-export default P_List;
+export default PersonList;

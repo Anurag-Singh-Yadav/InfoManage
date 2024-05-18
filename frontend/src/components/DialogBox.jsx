@@ -2,7 +2,7 @@ import * as React from "react";
 import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
-import P_FORM from "./P_FORM";
+import PersonForm from "./PersonForm";
 
 function AlertDialog({
   open,
@@ -27,7 +27,7 @@ function AlertDialog({
       >
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            <P_FORM
+            <PersonForm
               setOpen={setOpen}
               formData={formData}
               isUpdate={true}
@@ -37,21 +37,6 @@ function AlertDialog({
             />
           </DialogContentText>
         </DialogContent>
-
-        {/* <DialogActions>
-          <div className="flex justify-between items-center w-[50%] mx-auto">
-            <Button onClick={handleClose}>Cancel</Button>
-            <Button
-              onClick={(e) => {
-                handleUpdatePerson(formData.id, formData);
-                handleClose();
-              }}
-              autoFocus
-            >
-              Update
-            </Button>
-          </div>
-        </DialogActions> */}
       </Dialog>
     </React.Fragment>
   );

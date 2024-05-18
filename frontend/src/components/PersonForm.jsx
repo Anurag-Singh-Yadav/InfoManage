@@ -1,9 +1,9 @@
 import React from "react";
-import "./P_FORM.css";
+import "./PersonForm.css";
 import hero from "../assets/cms.png";
 import { MdCancel } from "react-icons/md";
 
-function P_FORM({
+function PersonForm({
   handleAddPerson,
   handleUpdatePerson,
   formData,
@@ -51,7 +51,7 @@ function P_FORM({
   return (
     <div className="flex justify-center items-center flex-col">
       {isUpdate && (
-        <div className="absolute top-0 right-2 m-2">
+        <div className="absolute text-black top-0 right-2 m-2">
           <MdCancel
             className="text-2xl cursor-pointer"
             onClick={() => {
@@ -60,7 +60,7 @@ function P_FORM({
           />
         </div>
       )}
-      <div className="text-center my-4 font-bold text-2xl mb-3">
+      <div className="text-center my-4 font-bold text-black text-2xl mb-3">
         {isUpdate ? "Update Person" : "Enter Details"}
       </div>
       <div className="p-6 border rounded-sm w-full max-w-[450px]">
@@ -112,6 +112,7 @@ function P_FORM({
               value={formData.dateOfBirth}
               onChange={handleChange}
             />
+            
           </div>
           <button type="submit" className="form-button">
             {isUpdate ? "Update" : "Add Person"}
@@ -122,4 +123,4 @@ function P_FORM({
   );
 }
 
-export default P_FORM;
+export default PersonForm;

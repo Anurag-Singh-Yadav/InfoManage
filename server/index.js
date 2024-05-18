@@ -12,6 +12,7 @@ const cors = require("cors");
 app.use(cors());
 
 // Routes
+app.use("/vahan", entityRoutes);
 
 // Sync models with database
 sequelize
