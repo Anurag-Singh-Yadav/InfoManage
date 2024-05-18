@@ -3,12 +3,12 @@ import DialogBox from "./DialogBox";
 import Avatar from "react-avatar";
 import { MdDelete } from "react-icons/md";
 import { MdEdit } from "react-icons/md";
-function PersonList({ persons, handleUpdatePerson, onDeletePerson }) {
+function PersonList({ persons,error, setError, handleUpdatePerson, onDeletePerson }) {
   const [open, setOpen] = useState(false);
   const [formData, setFormData] = useState({});
   return (
     <div className="container">
-      {open && <DialogBox open={open} handleUpdatePerson={handleUpdatePerson} formData={formData} setFormData={setFormData} setOpen={setOpen}></DialogBox>}
+      {open && <DialogBox open={open} error={error} setError={setError} handleUpdatePerson={handleUpdatePerson} formData={formData} setFormData={setFormData} setOpen={setOpen}></DialogBox>}
       <div className="text-center font-bold text-2xl my-4">
         Person{"'"}s Details
       </div>

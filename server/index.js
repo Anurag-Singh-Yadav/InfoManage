@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const sequelize = require("./config/config");
 const entityRoutes = require("./routes/routes");
-
+dotenv = require("dotenv").config();
 const app = express();
 
 // Middleware
@@ -12,7 +12,7 @@ const cors = require("cors");
 app.use(cors());
 
 // Routes
-app.use("/vahan", entityRoutes);
+app.use(`/${process.env.BASE_KEY}`, entityRoutes);
 
 // Sync models with database
 sequelize

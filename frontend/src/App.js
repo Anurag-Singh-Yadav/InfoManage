@@ -92,6 +92,8 @@ function App() {
       </div>
       <div>
         <PersonList
+          error={errorMessage}
+          setError={setErrorMessage}
           persons={persons}
           handleUpdatePerson={handleUpdatePerson}
           setFormData={setFormData}

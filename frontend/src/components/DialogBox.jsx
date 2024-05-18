@@ -10,6 +10,8 @@ function AlertDialog({
   setFormData,
   handleUpdatePerson,
   formData,
+  error,
+  setError
 }) {
   const handleClose = () => {
     setOpen(false);
@@ -29,6 +31,8 @@ function AlertDialog({
           <DialogContentText id="alert-dialog-description">
             <PersonForm
               setOpen={setOpen}
+              error={error}
+              setError={setError}
               formData={formData}
               isUpdate={true}
               id={formData.id}
@@ -48,10 +52,14 @@ function DialogBox({
   handleUpdatePerson,
   formData,
   setFormData,
+  error,
+  setError
 }) {
   return (
     <AlertDialog
       open={open}
+      error={error}
+      setError={setError}
       handleUpdatePerson={handleUpdatePerson}
       setOpen={setOpen}
       formData={formData}
