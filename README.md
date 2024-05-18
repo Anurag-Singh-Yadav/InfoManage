@@ -18,12 +18,12 @@
 
 ```bash
 git clone https://github.com/Rohitrky2021/Vahan_CRUD_MYSQL
-cd cd backend 
+cd server 
 npm install
 ```
 
 **2. Run the Development Server:**
-Run the following command to launch the development server: backend server will start on port 3000.
+Run the following command to launch the development server: backend server will start on port 4000.
 
 ```Bash
 npm run start
@@ -31,7 +31,10 @@ npm run start
 
 **3. Open a new terminal window/tab and navigate to the `frontend` folder.**
 
-**5. Install frontend dependencies by running: npm install.**
+```bash
+cd frontend 
+npm install
+```
 
-**6. Start the frontend development server by running: npm start.**
+**5. Start the frontend development server by running: npm start.**
 
