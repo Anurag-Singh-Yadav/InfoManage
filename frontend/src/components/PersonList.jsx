@@ -3,6 +3,7 @@ import DialogBox from "./DialogBox";
 import Avatar from "react-avatar";
 import { MdDelete } from "react-icons/md";
 import { MdEdit } from "react-icons/md";
+import NoData from "./NoData";
 function PersonList({ persons,error, setError, handleUpdatePerson, onDeletePerson }) {
   const [open, setOpen] = useState(false);
   const [formData, setFormData] = useState({});
@@ -12,7 +13,8 @@ function PersonList({ persons,error, setError, handleUpdatePerson, onDeletePerso
       <div className="text-center font-bold text-2xl my-4">
         Person{"'"}s Details
       </div>
-      <div className="row justify-content-center mt-4">
+      {
+        persons.length === 0 ? <NoData></NoData> : <div className="row justify-content-center mt-4">
         <div className="col-lg-8 col-md-10">
           <div className="flex flex-col gap-2 py-2">
             {persons.map((person) => (
@@ -52,6 +54,7 @@ function PersonList({ persons,error, setError, handleUpdatePerson, onDeletePerso
           </div>
         </div>
       </div>
+      }
     </div>
   );
 }
