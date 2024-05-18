@@ -26,7 +26,7 @@ npm install
 Run the following command to launch the development server: backend server will start on port 4000.
 
 ```Bash
-npm run start
+npm run dev
 ```
 
 **3. Open a new terminal window/tab and navigate to the `frontend` folder.**
