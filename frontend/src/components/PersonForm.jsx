@@ -65,9 +65,9 @@ function PersonForm({
       </div>
       <div className="p-6 border rounded-sm w-full max-w-[450px]">
         {!isUpdate && (
-          <h2>
+          <div>
             <img src={hero} alt="Logo" className="w-[100px]"></img>
-          </h2>
+          </div>
         )}
         {error && (
           <div className="form-error capitalize py-1 text-red-500">{error}</div>
